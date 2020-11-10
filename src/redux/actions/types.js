@@ -1,0 +1,5 @@
+module.exports = {
+  CONFIG_SET: 'CONFIG_SET',
+
+  VARIABLE_UPDATE: 'VARIABLE_UPDATE'
+};
