@@ -1,8 +1,6 @@
 const types = require('../actions/types');
 
-const initial = {
-  Variable: 2
-};
+const initial = {};
 
 module.exports = (state = initial, action) => {
   switch (action.type) {
