@@ -9,9 +9,21 @@ const Monitor = require('import-jsx')('./components/monitor');
 
 const { connect } = require('react-redux/lib/alternate-renderers');
 const { setConfig } = require('./redux/actions/config');
+const { updateVariable } = require('./redux/actions/variables');
 
-const App = ({ config, setConfig }) => {
-  React.useEffect(() => setConfig(config));
+const SerialPort = require('serialport');
+const Readline = require('@serialport/parser-readline');
+
+const App = ({ config, setConfig, updateVariable }) => {
+
+  React.useEffect(() => setConfig(config), []);
+  React.useEffect(() => {
+    const port = new SerialPort(config.port, { baudRate: config.baud || 9600 });
+    const parser = port.pipe(new Readline({ delimiter: '\r\n' }));
+
+    port.on('open', () => {});
+    parser.on('data', data => updateVariable('Variable', data));
+  }, []);
 
   return <FullScreen>
     <Box flexDirection="column" height={process.stdout.rows}>
@@ -24,4 +36,7 @@ const App = ({ config, setConfig }) => {
   </FullScreen>
 };
 
-module.exports = connect(null, { setConfig })(App);
+module.exports = connect(
+  null,
+  { setConfig, updateVariable }
+)(App);

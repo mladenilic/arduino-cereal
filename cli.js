@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+
 'use strict';
 const React = require('react');
-const {render} = require('ink');
+const { render } = require('ink');
 const meow = require('meow');
 
-const app = require('import-jsx')('./src/app');
+const ArduinoCereal = require('import-jsx')('./src');
 
 const cli = meow(`
   Usage
@@ -15,4 +16,4 @@ const cli = meow(`
     --baud  Baud rate (default: 9600)
 `);
 
-render(React.createElement(app, cli.flags));
+render(React.createElement(ArduinoCereal, { config: cli.flags }));

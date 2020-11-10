@@ -1,13 +1,20 @@
 const types = require('../actions/types');
 
-const initial = new Map();
+const initial = {
+  Variable: 2
+};
 
 module.exports = (state = initial, action) => {
   switch (action.type) {
     case types.VARIABLE_UPDATE:
-      state.set(action.name, action.value);
+      if (state[action.name] === action.value) {
+        return state;
+      }
 
-      return state;
+      return {
+        ...state,
+        ...{ [action.name]: action.value }
+      };
     default:
       return state;
   }
