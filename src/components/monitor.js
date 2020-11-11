@@ -11,14 +11,17 @@ const Monitor = ({ messages, setMessageCount }) => {
 	React.useEffect(() => {
 		const { height } = measureElement(ref.current);
 
-    setMessageCount(Math.max(height - 2, 1));
+    setMessageCount(Math.max(height, 1));
 	}, []);
 
-  return <Box ref={ref} flexDirection="column" borderStyle="single" flexGrow={1} paddingX={1} paddingY={0}>
-    <Spacer />
-    <Text>
-      {messages.map((message, index) => <Text key={index}>{message}{index === messages.length - 1 ? '' : <Newline/>}</Text>)}
-    </Text>
+  return <Box borderStyle="single" flexDirection="column" flexGrow={1} paddingX={1}>
+    <Box justifyContent="flex-start"><Text>[<Text bold>Monitor</Text>]</Text></Box>
+    <Box ref={ref} flexDirection="column" flexGrow={1}>
+      <Spacer />
+      <Text>
+        {messages.map((message, index) => <Text key={index}>{message}{index === messages.length - 1 ? '' : <Newline/>}</Text>)}
+      </Text>
+    </Box>
   </Box>
 };
 
