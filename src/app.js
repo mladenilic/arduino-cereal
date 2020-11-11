@@ -2,7 +2,7 @@
 const React = require('react');
 
 const { Box } = require('ink');
-const FullScreen = require('import-jsx')('./components/util/fullscreen');
+const FullScreen = require('import-jsx')('./components/utils/fullscreen');
 const Header = require('import-jsx')('./components/header');
 const Variables = require('import-jsx')('./components/variables');
 const Monitor = require('import-jsx')('./components/monitor');
