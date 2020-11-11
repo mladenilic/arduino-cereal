@@ -1,12 +1,16 @@
 'use strict';
 const React = require('react');
-const { Box, Text } = require('ink');
+
+const Box = require('import-jsx')('./base/box');
+const Text = require('import-jsx')('./base/text');
+const Heading = require('import-jsx')('./base/heading');
 
 const { connect } = require('react-redux/lib/alternate-renderers');
 
 const Header = ({ config }) => {
   return <Box paddingX={1} paddingY={0} borderStyle="single">
-    <Text>Arduino Cereal Monitor – Port: {config.port || 'n/a'}, Baud rate: {config.baud}</Text>
+    <Heading>Arduino Cereal Monitor</Heading>
+    <Text> — Port: <Text bold>{config.port || '/'}</Text>, Baud rate: <Text bold>{config.baud}</Text></Text>
   </Box>
 };
 
