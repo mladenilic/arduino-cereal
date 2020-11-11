@@ -11,13 +11,16 @@ const { connect } = require('react-redux/lib/alternate-renderers');
 const { setConfig } = require('./redux/actions/config');
 const { updateVariable } = require('./redux/actions/variables');
 const { addMessage } = require('./redux/actions/messages');
+const { setSerialStatus } = require('./redux/actions/serial');
 
 const Serial = require('./serial');
 
-const App = ({ config, setConfig, updateVariable, addMessage }) => {
+const App = ({ config, setConfig, updateVariable, addMessage, setSerialStatus }) => {
   React.useEffect(() => { setConfig(config) }, []);
   React.useEffect(() => {
     Serial.connect(config.port, config.baud || 9600)
+      .on('connect', () => setSerialStatus('success'))
+      .on('error', () => setSerialStatus('error'))
       .on('variable', ([name, value]) => updateVariable(name, value))
       .on('message', (message) => addMessage(message));
   }, []);
@@ -35,5 +38,5 @@ const App = ({ config, setConfig, updateVariable, addMessage }) => {
 
 module.exports = connect(
   null,
-  { setConfig, updateVariable, addMessage }
+  { setConfig, updateVariable, addMessage, setSerialStatus }
 )(App);
