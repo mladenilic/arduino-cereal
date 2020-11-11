@@ -14,14 +14,14 @@ const Monitor = ({ config, messages, setMessageCount }) => {
 
 	React.useEffect(() => {
 		const { height } = measureElement(ref.current);
-    setMessageCount(Math.max(height - 1, 1));
+    setMessageCount(Math.max(height, 1));
 	}, []);
 
 	const timestamp = (message) => config.monitor.timestamp ? <Text>[<Text>{message.time}</Text>] </Text> : null;
 
-  return <Box boxRef={ref} borderStyle="single" flexDirection="column" flexGrow={1} paddingX={1}>
+  return <Box borderStyle="single" flexDirection="column" flexGrow={1} paddingX={1}>
     <Heading>Monitor</Heading>
-    <Box flexDirection="column" flexGrow={1}>
+    <Box boxRef={ref} flexDirection="column" flexGrow={1}>
       <Spacer/>
       <Text>
         {messages.map((message, index) => {
