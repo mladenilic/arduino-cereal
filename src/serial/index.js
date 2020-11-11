@@ -1,4 +1,4 @@
-const { EventEmitter } = require('events');
+const EventEmitter = require('events');
 
 const SerialPort = require('serialport');
 const CerealParser = require('./parser');
@@ -8,15 +8,20 @@ class Serial extends EventEmitter {
     super();
 
     this.stream = stream;
+    this.stream.pipe(new CerealParser()).on('data', this._data.bind(this));
+    this.stream.open(this._open.bind(this));
+  }
 
-    this.stream.pipe(new CerealParser())
-      .on('open', () => this.emit('connected'))
-      .on('error', (e) => this.emit('error', e))
-      .on('data', data => this.emit(data.variable ? 'variable' : 'message', data.value));
+  _open(error) {
+    error === null ? this.emit('connect') : this.emit('error', error);
+  }
+
+  _data(data) {
+    this.emit(data.variable ? 'variable' : 'message', data.value);
   }
 
   static connect(port, baud) {
-     return new this(new SerialPort(port, { baudRate: baud }));
+     return new this(new SerialPort(port, { baudRate: baud, autoOpen: false }));
   }
 }
 
