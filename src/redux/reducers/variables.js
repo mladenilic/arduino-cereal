@@ -4,7 +4,7 @@ const initial = {};
 
 module.exports = (state = initial, action) => {
   switch (action.type) {
-    case types.VARIABLE_UPDATE:
+    case types.UPDATE_VARIABLE:
       if (state[action.name] === action.value) {
         return state;
       }

@@ -1,7 +1,7 @@
 const types = require('./types');
 
 const setConfig = (config) => ({
-  type: types.CONFIG_SET,
+  type: types.SET_CONFIG,
   config,
 });
 
