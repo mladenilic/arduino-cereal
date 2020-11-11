@@ -13,17 +13,21 @@ const { updateVariable } = require('./redux/actions/variables');
 const { addMessage } = require('./redux/actions/messages');
 
 const SerialPort = require('serialport');
-const Readline = require('@serialport/parser-readline');
+const CerealParser = require('./serial/parser');
 
 const App = ({ config, setConfig, updateVariable, addMessage }) => {
   React.useEffect(() => { setConfig(config) }, []);
   React.useEffect(() => {
-    const port = new SerialPort(config.port, { baudRate: config.baud || 9600 });
-    const parser = port.pipe(new Readline({ delimiter: '\r\n' }));
-
-    port.on('open', () => {});
-    // parser.on('data', data => updateVariable('Variable', data));
-    parser.on('data', data => addMessage(`Variable ${data}`));
+    (new SerialPort(config.port, { baudRate: config.baud || 9600 }))
+      .pipe(new CerealParser())
+      .on('open', () => {})
+      .on('data', data => {
+        if (data.variable) {
+          updateVariable(...data.value);
+        } else {
+          addMessage(data.value);
+        }
+      }).on('error', error => log.error(JSON.stringify(error)));
   }, []);
 
   return <FullScreen>

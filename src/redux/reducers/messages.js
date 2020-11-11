@@ -10,7 +10,7 @@ module.exports = (state = initial, action) => {
     case types.ADD_MESSAGE:
       let newState = {
         ...state,
-        ...{ messages: [...state.messages, action.message].slice(-state.count) }
+        ...{ messages: [...state.messages, ...action.message.split("\r\n")].filter(Boolean).slice(-state.count) }
       };
 
       return newState.messages.every((v, i) => v === state.messages[i]) ? state : newState;
