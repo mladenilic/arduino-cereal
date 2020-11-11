@@ -14,7 +14,7 @@ const Monitor = ({ messages, setMessageCount }) => {
     setMessageCount(Math.max(height - 2, 1));
 	}, []);
 
-  return <Box ref={ref} flexDirection="column" borderStyle="single" flexGrow={3} marginLeft={0.5} paddingX={1} paddingY={0}>
+  return <Box ref={ref} flexDirection="column" borderStyle="single" flexGrow={1} paddingX={1} paddingY={0}>
     <Spacer />
     <Text>
       {messages.map((message, index) => <Text key={index}>{message}{index === messages.length - 1 ? '' : <Newline/>}</Text>)}
