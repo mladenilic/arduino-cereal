@@ -12,7 +12,7 @@ import Timestamp from './monitor/timestamp';
 import { connect } from 'react-redux/lib/alternate-renderers';
 import { setMessageCount } from '../redux/actions/messages';
 
-const Monitor = ({ config, messages, setMessageCount }) => {
+const Monitor = ({ messages, setMessageCount }) => {
   const ref = useRef();
 
 	useEffect(() => {
@@ -39,7 +39,6 @@ const Monitor = ({ config, messages, setMessageCount }) => {
 
 export default connect(
   (state) => ({
-    config: state.config,
     messages: state.messages.messages
   }),
   { setMessageCount }
