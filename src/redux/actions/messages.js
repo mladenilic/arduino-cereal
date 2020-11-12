@@ -5,10 +5,10 @@ const setMessageCount = (count) => ({
   count
 });
 
-const addMessage = (message) => ({
+const addMessage = (message, time) => ({
   type: types.ADD_MESSAGE,
-  time: new Date().toLocaleTimeString(),
-  message
+  message,
+  time
 });
 
 export { setMessageCount, addMessage };

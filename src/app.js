@@ -24,7 +24,7 @@ const App = ({ config, setConfig, updateVariable, addMessage, setSerialStatus })
       .on('connect', () => setSerialStatus('success'))
       .on('error', () => setSerialStatus('error'))
       .on('variable', ([name, value]) => updateVariable(name, value))
-      .on('message', (message) => addMessage(message));
+      .on('message', (message) => addMessage(message, new Date().toLocaleTimeString(config.monitor.timestampLocale)));
   });
 
   return <Box flexDirection="column" height={process.stdout.rows}>

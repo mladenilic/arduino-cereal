@@ -5,7 +5,8 @@ const initial = {
   port: undefined,
 
   monitor: {
-    timestamp: true
+    timestamp: true,
+    timestampLocale: "en-GB"
   },
 
   colors: {
@@ -24,8 +25,6 @@ const initial = {
     }
   }
 };
-
-
 
 export default (state = initial, action) => {
   switch (action.type) {
