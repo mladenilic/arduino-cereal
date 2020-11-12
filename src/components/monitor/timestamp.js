@@ -10,7 +10,7 @@ const Timestamp = ({ config, time }) => {
     return null;
   }
 
-  return <Text>[<Text>{time}</Text>] </Text>;
+  return <Text>[<Text>{time.toLocaleTimeString(config.monitor.timestampLocale)}</Text>] </Text>;
 };
 
 export default connect(
