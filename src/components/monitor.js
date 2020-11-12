@@ -25,13 +25,13 @@ const Monitor = ({ config, messages, setMessageCount }) => {
     <Box boxRef={ref} flexDirection="column" flexGrow={1}>
       <Spacer/>
       <Text>
-        {messages.map((message, index) => {
-          return <Text key={index}>
+        {messages.map((message, index) => (
+          <Text key={index}>
             <Timestamp time={message.time} />
             <Text>{message.text}</Text>
             {index === messages.length - 1 ? '' : <Newline/>}
           </Text>
-        })}
+        ))}
       </Text>
     </Box>
   </Box>
