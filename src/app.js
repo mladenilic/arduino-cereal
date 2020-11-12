@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import { Box } from 'ink';
 
 import { connect } from 'react-redux/lib/alternate-renderers';
 import { setConfig } from './redux/actions/config';
@@ -11,6 +10,7 @@ import { setSerialStatus } from './redux/actions/serial';
 
 import Serial from './serial';
 
+import Box from './components/base/box';
 import Header from './components/header';
 import Variables from './components/variables';
 import Monitor from './components/monitor';
