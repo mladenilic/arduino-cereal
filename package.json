@@ -2,7 +2,9 @@
 	"name": "arduino-cereal",
 	"version": "0.0.0",
 	"license": "MIT",
-	"bin": "cli.js",
+	"bin": {
+		"arduino-cereal": "cli.js"
+	},
 	"engines": {
 		"node": ">=10"
 	},
