@@ -15,15 +15,17 @@ import Header from './components/header';
 import Variables from './components/variables';
 import Monitor from './components/monitor';
 
+import useInit from './utils/use-init';
+
 const App = ({ config, setConfig, updateVariable, addMessage, setSerialStatus }) => {
-  React.useEffect(() => { setConfig(config) }, []);
-  React.useEffect(() => {
+  useInit(() => { setConfig(config) });
+  useInit(() => {
     Serial.connect(config.port, config.baud || 9600)
       .on('connect', () => setSerialStatus('success'))
       .on('error', () => setSerialStatus('error'))
       .on('variable', ([name, value]) => updateVariable(name, value))
       .on('message', (message) => addMessage(message));
-  }, []);
+  });
 
   return <Box flexDirection="column" height={process.stdout.rows}>
     <Header/>
