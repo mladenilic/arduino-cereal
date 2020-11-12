@@ -13,9 +13,9 @@ import { connect } from 'react-redux/lib/alternate-renderers';
 const Header = ({ config, serial }) => {
   const status = () => {
     switch (serial.status) {
-      case 'success': return <Text color="#0f0">connected</Text>;
-      case 'error': return <Text color="#f00">error</Text>;
-      case 'pending': return <Text color="#00f">connecting...</Text>;
+      case 'success': return <Text color={config.colors.success}>&#11044; </Text>;
+      case 'error': return <Text color={config.colors.error}>&#11044; </Text>;
+      case 'pending': return <Text>connecting... </Text>;
       default: return null;
     }
   };

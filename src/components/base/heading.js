@@ -7,9 +7,9 @@ import { connect } from 'react-redux/lib/alternate-renderers';
 import Box from './box';
 import Text from './text';
 
-const Heading = ({ config, children }) => (
+const Heading = ({ config, color, children }) => (
   <Box justifyContent="flex-start">
-    <Text>[<Text bold color={config.colors.global.heading}>{children}</Text>]</Text>
+    <Text>[<Text bold color={color || config.colors.global.heading}>{children}</Text>]</Text>
   </Box>
 );
 

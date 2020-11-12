@@ -10,11 +10,12 @@ const initial = {
 
   colors: {
     default: undefined,
+    success: "#859900",
+    error: "#dc322f",
 
     global: {
-      heading: undefined,
-      border: "#268bd2",
-      title: "#268bd2"
+      heading: "#b58900",
+      border: "#268bd2"
     },
 
     monitor: {
