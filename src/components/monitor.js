@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { Newline, Spacer, measureElement } from 'ink';
 
@@ -12,9 +12,9 @@ import { connect } from 'react-redux/lib/alternate-renderers';
 import { setMessageCount } from '../redux/actions/messages';
 
 const Monitor = ({ config, messages, setMessageCount }) => {
-  const ref = React.useRef();
+  const ref = useRef();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const { height } = measureElement(ref.current);
     setMessageCount(Math.max(height, 1));
 	}, []);
