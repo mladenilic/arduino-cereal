@@ -1,11 +1,15 @@
+#!/usr/bin/env node
 'use strict';
-const React = require('react');
 
-const { Provider } = require('react-redux/lib/alternate-renderers');
-const store = require('./redux/store');
-const loadUserConfig = require('./utils/config');
+import React from 'react';
+import { render } from 'ink';
 
-const App = require('import-jsx')('./app');
+import { Provider } from 'react-redux/lib/alternate-renderers';
+import store from './redux/store';
+import loadUserConfig from './utils/config';
+
+import App from './app';
+import cli from './utils/cli';
 
 const ArduinoCereal = ({ config }) => (
   <Provider store={store}>
@@ -13,4 +17,4 @@ const ArduinoCereal = ({ config }) => (
   </Provider>
 );
 
-module.exports = ArduinoCereal;
+render(React.createElement(ArduinoCereal, { config: cli.flags }));

@@ -1,13 +1,14 @@
 'use strict';
 
-const React = require('react');
-const { Spacer } = require('ink');
+import React from 'react';
 
-const Box = require('import-jsx')('./base/box');
-const Text = require('import-jsx')('./base/text');
-const Heading = require('import-jsx')('./base/heading');
+import { Spacer } from 'ink';
 
-const { connect } = require('react-redux/lib/alternate-renderers');
+import Box from './base/box';
+import Text from './base/text';
+import Heading from './base/heading';
+
+import { connect } from 'react-redux/lib/alternate-renderers';
 
 const Header = ({ config, serial }) => {
   const status = () => {
@@ -27,6 +28,6 @@ const Header = ({ config, serial }) => {
   </Box>
 };
 
-module.exports = connect(
+export default connect(
   (state) => ({ config: state.config, serial: state.serial }),
 )(Header);

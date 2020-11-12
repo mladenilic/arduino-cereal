@@ -1,13 +1,15 @@
 'use strict';
-const React = require('react');
-const { Newline, Spacer, measureElement } = require('ink');
 
-const Box = require('import-jsx')('./base/box');
-const Text = require('import-jsx')('./base/text');
-const Heading = require('import-jsx')('./base/heading');
+import React from 'react';
 
-const { connect } = require('react-redux/lib/alternate-renderers');
-const { setMessageCount } = require('../redux/actions/messages');
+import { Newline, Spacer, measureElement } from 'ink';
+
+import Box from './base/box';
+import Text from './base/text';
+import Heading from './base/heading';
+
+import { connect } from 'react-redux/lib/alternate-renderers';
+import { setMessageCount } from '../redux/actions/messages';
 
 const Monitor = ({ config, messages, setMessageCount }) => {
   const ref = React.useRef();
@@ -36,7 +38,7 @@ const Monitor = ({ config, messages, setMessageCount }) => {
   </Box>
 };
 
-module.exports = connect(
+export default connect(
   (state) => ({
     config: state.config,
     messages: state.messages.messages

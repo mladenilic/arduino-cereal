@@ -1,6 +1,6 @@
-const { Transform } = require('stream');
+import { Transform } from 'stream';
 
-class CerealParser extends Transform {
+export default class CerealParser extends Transform {
   constructor(options = {}) {
     options.objectMode = true;
 
@@ -45,5 +45,3 @@ class CerealParser extends Transform {
     cb()
   }
 }
-
-module.exports = CerealParser;

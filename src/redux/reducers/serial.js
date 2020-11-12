@@ -1,10 +1,10 @@
-const types = require('../actions/types');
+import * as types from '../actions/types';
 
 const initial = {
   status: 'pending'
 };
 
-module.exports = (state = initial, action) => {
+export default (state = initial, action) => {
   switch (action.type) {
     case types.SET_SERIAL_STATUS:
       return {

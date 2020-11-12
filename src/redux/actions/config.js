@@ -1,8 +1,8 @@
-const types = require('./types');
+import * as types from './types';
 
 const setConfig = (config) => ({
   type: types.SET_CONFIG,
   config,
 });
 
-module.exports = { setConfig };
+export { setConfig };

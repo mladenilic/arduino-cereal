@@ -1,10 +1,11 @@
-const { combineReducers } = require('redux');
-const config = require('./config');
-const messages = require('./messages');
-const serial = require('./serial');
-const variables = require('./variables');
+import { combineReducers } from 'redux';
 
-module.exports = combineReducers({
+import config from './config';
+import messages from './messages';
+import serial from './serial';
+import variables from './variables'
+
+export default combineReducers({
   config: config,
   messages: messages,
   serial: serial,

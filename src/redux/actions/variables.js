@@ -1,4 +1,4 @@
-const types = require('./types');
+import * as types from './types';
 
 const updateVariable = (name, value) => ({
   type: types.UPDATE_VARIABLE,
@@ -6,4 +6,4 @@ const updateVariable = (name, value) => ({
   value
 });
 
-module.exports = { updateVariable };
+export { updateVariable };

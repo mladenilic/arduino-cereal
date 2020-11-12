@@ -1,4 +1,4 @@
-const types = require('./types');
+import * as types from './types';
 
 const setMessageCount = (count) => ({
   type: types.SET_MESSAGE_COUNT,
@@ -11,4 +11,4 @@ const addMessage = (message) => ({
   message
 });
 
-module.exports = { setMessageCount, addMessage };
+export { setMessageCount, addMessage };

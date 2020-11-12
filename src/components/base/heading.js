@@ -1,10 +1,11 @@
 'use strict';
-const React = require('react');
 
-const Box = require('import-jsx')('./Box');
-const Text = require('import-jsx')('./text');
+import React from 'react';
 
-const { connect } = require('react-redux/lib/alternate-renderers');
+import { connect } from 'react-redux/lib/alternate-renderers';
+
+import Box from './box';
+import Text from './text';
 
 const Heading = ({ config, children }) => (
   <Box justifyContent="flex-start">
@@ -12,6 +13,6 @@ const Heading = ({ config, children }) => (
   </Box>
 );
 
-module.exports = connect(
+export default connect(
   (state) => ({ config: state.config }),
 )(Heading);

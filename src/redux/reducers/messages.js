@@ -1,11 +1,11 @@
-const types = require('../actions/types');
+import * as types from '../actions/types';
 
 const initial = {
   count: 10,
   messages: []
 };
 
-module.exports = (state = initial, action) => {
+export default (state = initial, action) => {
   switch (action.type) {
     case types.ADD_MESSAGE:
       let newState = {

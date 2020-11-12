@@ -1,8 +1,8 @@
-const types = require('../actions/types');
+import * as types from '../actions/types';
 
 const initial = {};
 
-module.exports = (state = initial, action) => {
+export default (state = initial, action) => {
   switch (action.type) {
     case types.UPDATE_VARIABLE:
       if (state[action.name] === action.value) {

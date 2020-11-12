@@ -1,11 +1,13 @@
 'use strict';
-const React = require('react');
-const { Text: InkText } = require('ink');
+import React from 'react';
 
-const { connect } = require('react-redux/lib/alternate-renderers');
+import { Text as InkText } from 'ink';
+import { connect } from 'react-redux/lib/alternate-renderers';
 
-const Text = ({ config, color, children, ...rest }) => <InkText color={color || config.colors.default} {...rest}>{children}</InkText>;
+const Text = ({ config, color, children, ...rest }) => (
+  <InkText color={color || config.colors.default} {...rest}>{children}</InkText>
+);
 
-module.exports = connect(
+export default connect(
   (state) => ({ config: state.config }),
 )(Text);

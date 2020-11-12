@@ -1,9 +1,9 @@
-const EventEmitter = require('events');
+import EventEmitter from 'events';
 
-const SerialPort = require('serialport');
-const CerealParser = require('./parser');
+import SerialPort from 'serialport'
+import CerealParser from './parser';
 
-class Serial extends EventEmitter {
+export default class Serial extends EventEmitter {
   constructor(stream) {
     super();
 
@@ -23,6 +23,4 @@ class Serial extends EventEmitter {
   static connect(port, baud) {
      return new this(new SerialPort(port, { baudRate: baud, autoOpen: false }));
   }
-}
-
-module.exports = Serial;
+};

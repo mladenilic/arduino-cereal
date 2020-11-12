@@ -1,9 +1,7 @@
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
 
-const loadUserConfig = () => {
+export default () => {
   const configPath = path.join(process.cwd(), './cereal.config.json');
   return fs.existsSync(configPath) ? require(configPath) : {};
 };
-
-module.exports = loadUserConfig;

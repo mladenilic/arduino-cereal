@@ -1,11 +1,12 @@
 'use strict';
-const React = require('react');
 
-const Box = require('import-jsx')('./base/box');
-const Text = require('import-jsx')('./base/text');
-const Heading = require('import-jsx')('./base/heading');
+import React from 'react';
 
-const { connect } = require('react-redux/lib/alternate-renderers');
+import Box from './base/box';
+import Text from './base/text';
+import Heading from './base/heading';
+
+import { connect } from 'react-redux/lib/alternate-renderers';
 
 const Variables = ({ variables = {} }) => {
   return <Box flexDirection="column" borderStyle="single" width={50} paddingX={1} marginRight={1}>
@@ -21,6 +22,6 @@ const Variables = ({ variables = {} }) => {
   </Box>
 };
 
-module.exports = connect(
+export default connect(
   (state) => ({ variables: state.variables }),
 )(Variables);
