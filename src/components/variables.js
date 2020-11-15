@@ -12,10 +12,10 @@ const Variables = ({ variables = {} }) => {
   return <Box flexDirection="column" borderStyle="single" width={50} paddingX={1} marginRight={1}>
     <Heading>Variables</Heading>
     <Box flexDirection="column">
-      {Object.entries(variables).map(([name, value]) => (
+      {Object.entries(variables).map(([name, variable]) => (
         <Box flexDirection="row" key={name}>
           <Text>{name}: </Text>
-          <Text>{value}</Text>
+          <Text>{variable.value} ({variable.type})</Text>
         </Box>
       ))}
     </Box>

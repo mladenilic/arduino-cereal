@@ -1,9 +1,9 @@
 import * as types from './types';
 
-const updateVariable = (name, value) => ({
+const updateVariable = (type, name, value, options) => ({
   type: types.UPDATE_VARIABLE,
   name,
-  value
+  variable: { name, type, value, options }
 });
 
 export { updateVariable };

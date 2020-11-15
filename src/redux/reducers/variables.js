@@ -5,13 +5,14 @@ const initial = {};
 export default (state = initial, action) => {
   switch (action.type) {
     case types.UPDATE_VARIABLE:
-      if (state[action.name] === action.value) {
+      const variable = action.variable;
+      if ((state[action.name] || {}).value === variable.value) {
         return state;
       }
 
       return {
         ...state,
-        ...{ [action.name]: action.value }
+        ...{ [action.name]: variable }
       };
     default:
       return state;

@@ -26,7 +26,7 @@ export default class CerealParser extends Transform {
     while ((position = data.indexOf(this.delimiter)) !== -1) {
       let value = data.slice(0, position).toString('utf-8');
       if (this.varaible) {
-        value = value.split(this.valueDelimiter, 2);
+        value = value.split(this.valueDelimiter);
       }
 
       this.push({ variable: this.varaible, value: value });

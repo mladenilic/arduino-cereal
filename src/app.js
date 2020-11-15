@@ -23,7 +23,7 @@ const App = ({ config, setConfig, updateVariable, addMessage, setSerialStatus })
     Serial.connect(config.port, config.baud || 9600)
       .on('connect', () => setSerialStatus('success'))
       .on('error', () => setSerialStatus('error'))
-      .on('variable', ([name, value]) => updateVariable(name, value))
+      .on('variable', ([type, name, value, ...options]) => updateVariable(type, name, value, options))
       .on('message', (message) => addMessage(message));
   });
 
