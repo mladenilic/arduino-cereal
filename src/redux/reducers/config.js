@@ -4,26 +4,55 @@ const initial = {
   baud: 9600,
   port: undefined,
 
-  monitor: {
-    timestamp: true,
-    timestampLocale: "en-GB"
-  },
+  theme: {
+    modules: {
+      monitor: {
+        timestamp: true,
+        timestampLocale: 'en-GB'
+      },
 
-  colors: {
-    default: undefined,
-    success: "#859900",
-    error: "#dc322f",
-
-    global: {
-      heading: "#b58900",
-      border: "#268bd2"
+      variables: {
+        range: {
+          fill: '▇',
+          empty: '-'
+        },
+        flag: {
+          on: '▣',
+          off: '▢'
+        }
+      }
     },
 
-    monitor: {
-      timestamp: undefined,
-      text: undefined
+    colors: {
+      default: '#839496',
+
+      global: {
+        heading: '#b58900',
+        border: '#268bd2'
+      },
+
+      status: {
+        connected: '#859900',
+        error: '#dc322f',
+      },
+
+      monitor: {
+        timestamp: '#fff',
+        text: '#fff'
+      },
+
+      variables: {
+        range: {
+          fill: '#b58900',
+          empty: '#268bd2'
+        },
+        flag: {
+          on: '#268bd2',
+          off: '#839496'
+        }
+      }
     }
-  }
+  },
 };
 
 export default (state = initial, action) => {
@@ -32,11 +61,6 @@ export default (state = initial, action) => {
       return {
         ...state,
         ...action.config,
-
-        monitor: {
-          ...state.monitor,
-          ...action.config.monitor
-        },
       };
     default:
       return state;
