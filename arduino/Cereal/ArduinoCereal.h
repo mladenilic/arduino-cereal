@@ -17,6 +17,14 @@ class ArduinoCereal: public Print {
     size_t variable(const char *name, unsigned long value);
     size_t variable(const char *name, double value);
 
+    size_t range(const char *name, char value, char from, char to);
+    size_t range(const char *name, unsigned char value, unsigned char from, unsigned char to);
+    size_t range(const char *name, int value, int from, int to);
+    size_t range(const char *name, unsigned int value, unsigned int from, unsigned int to);
+    size_t range(const char *name, long value, long from, long to);
+    size_t range(const char *name, unsigned long value, unsigned long from, unsigned long to);
+    size_t range(const char *name, double value, double from, double to);
+
   private:
     enum Type {
       VARIABLE = 0x00,
