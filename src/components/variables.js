@@ -7,13 +7,15 @@ import Heading from './base/heading';
 
 import Variable from './variables/variable';
 import Range from './variables/range';
+import Flag from './variables/flag';
 
 import { connect } from 'react-redux/lib/alternate-renderers';
 
 const variableComponent = (type) => {
   return ({
     '0': Variable,
-    '1': Range
+    '1': Range,
+    '2': Flag,
   })[type] || Variable;
 };
 
