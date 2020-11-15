@@ -63,6 +63,14 @@ size_t ArduinoCereal::range(const char *name, double value, double from, double 
   return _CEREAL_PRINT_RANGE(name, value, from, to);
 }
 
+size_t ArduinoCereal::flag(const char *name, unsigned int value) {
+  return start(Type::FLAG) + print(name) + d() + print(value) + end();
+}
+
+size_t ArduinoCereal::digital(const char *name, unsigned int value) {
+  return flag(name, value);
+}
+
 size_t ArduinoCereal::analog(const char *name, int value) {
   return range(name, (long) value, (long) 0, (long) 1023);
 }
