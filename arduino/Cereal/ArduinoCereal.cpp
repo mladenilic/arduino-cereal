@@ -1,7 +1,7 @@
 #include "ArduinoCereal.h"
 
 size_t ArduinoCereal::variable(const char *name, char value) {
-  return start() + print(name) + d() + print(value) + end();
+  return start(Type::VARIABLE) + print(name) + d() + print(value) + end();
 }
 
 size_t ArduinoCereal::variable(const char *name, unsigned char value) {
@@ -17,13 +17,13 @@ size_t ArduinoCereal::variable(const char *name, unsigned int value) {
 }
 
 size_t ArduinoCereal::variable(const char *name, long value) {
-  return start() + print(name) + d() + print(value) + end();
+  return start(Type::VARIABLE) + print(name) + d() + print(value) + end();
 }
 
 size_t ArduinoCereal::variable(const char *name, unsigned long value) {
-  return start() + print(name) + d() + print(value) + end();
+  return start(Type::VARIABLE) + print(name) + d() + print(value) + end();
 }
 
 size_t ArduinoCereal::variable(const char *name, double value) {
-  return start() + print(name) + d() + print(value) + end();
+  return start(Type::VARIABLE) + print(name) + d() + print(value) + end();
 }

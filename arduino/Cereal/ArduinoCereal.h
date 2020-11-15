@@ -18,10 +18,18 @@ class ArduinoCereal: public Print {
     size_t variable(const char *name, double value);
 
   private:
+    enum Type {
+      VARIABLE = 0x00,
+      RANGE    = 0x01,
+      FLAG     = 0x02
+    };
+
     using Print::write;
 
     size_t start() { return print(MESSAGE_START); }
+    size_t start(Type type) { return start() + t(type) + d(); }
     size_t end() { return print(MESSAGE_END); }
+    size_t t(Type type) { return print(type); }
     size_t d() { return print(VARIABLE_DELIMTER); }
     size_t write(uint8_t c) { return Serial.write(c); }
 };
