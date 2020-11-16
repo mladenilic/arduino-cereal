@@ -1,4 +1,3 @@
-'use strict';
 import React from 'react';
 
 import { Text as InkText } from 'ink';

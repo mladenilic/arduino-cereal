@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import { Box as InkBox } from 'ink';
 import { connect } from 'react-redux/lib/alternate-renderers';
