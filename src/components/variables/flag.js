@@ -13,8 +13,8 @@ const Flag = ({ name, variable, characters, colors }) => {
     <Text>{name}: </Text>
     <Text>
       { value ?
-        <Text color={colors.on}>[{(characters.on || '▣')}] HIGH</Text> :
-        <Text color={colors.off}>[{(characters.off || '▢')}] LOW</Text>
+        <Text>[<Text color={colors.on}>{(characters.on || '▣')}</Text>] HIGH</Text> :
+        <Text>[<Text color={colors.on}>{(characters.off || '▢')}</Text>] LOW</Text>
       }
     </Text>
   </Box>
