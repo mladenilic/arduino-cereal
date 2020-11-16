@@ -36,13 +36,16 @@ export default {
     },
 
     variables: {
+      name: '#839496',
+      value: '#839496',
+
       range: {
         fill: '#b58900',
-        empty: '#268bd2'
+        empty: '#839496'
       },
       flag: {
-        on: '#268bd2',
-        off: '#839496'
+        on: '#b58900',
+        off: '#b58900'
       }
     }
   }

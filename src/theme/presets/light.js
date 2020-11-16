@@ -36,6 +36,9 @@ export default {
     },
 
     variables: {
+      name: '#839496',
+      value: '#839496',
+
       range: {
         fill: '#876600',
         empty: '#104061'
