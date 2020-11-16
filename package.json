@@ -18,6 +18,7 @@
 	],
 	"dependencies": {
 		"ink": "^3.0.8",
+		"lodash.merge": "^4.6.2",
 		"meow": "^8.0.0",
 		"react": "^16.8.0",
 		"react-redux": "^7.2.2",
