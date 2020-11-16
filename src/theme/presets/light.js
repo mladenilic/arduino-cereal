@@ -26,7 +26,7 @@ export default {
     },
 
     status: {
-      connected: '#859900',
+      success: '#859900',
       error: '#dc322f',
     },
 
