@@ -18,13 +18,13 @@ const variableComponent = (type) => {
 };
 
 const Variables = ({ variables = {} }) => {
-  return <Box flexDirection="column" borderStyle="single" width={50} paddingX={1} marginRight={1}>
+  return <Box flexDirection="column" borderStyle="single" paddingX={1} marginRight={1}>
     <Heading>Variables</Heading>
-    <Box flexDirection="column">
+    <Box width={60} flexDirection="column">
       {Object.entries(variables).map(([name, variable]) => {
         const Component = variableComponent(variable.type);
 
-        return <Component key={name} name={name} variable={variable} />
+        return <Component width="100%" key={name} name={name} variable={variable} />
       })}
     </Box>
   </Box>

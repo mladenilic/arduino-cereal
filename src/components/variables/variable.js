@@ -1,12 +1,13 @@
 import React from 'react';
 
 import Box from '../base/box';
-import Text from '../base/text';
+import VariableName from './base/name';
+import VariableValue from './base/value';
 
 const Variable = ({ name, variable }) => {
   return <Box flexDirection="row">
-    <Text>{name}: </Text>
-    <Text>{variable.value}</Text>
+    <VariableName name={name}/>
+    <VariableValue value={variable.value}/>
   </Box>
 };
 
