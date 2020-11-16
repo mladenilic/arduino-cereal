@@ -18,7 +18,7 @@ export default {
   },
 
   colors: {
-    default: '#16181c',
+    default: '#222222',
 
     global: {
       heading: '#876600',
@@ -31,13 +31,13 @@ export default {
     },
 
     monitor: {
-      timestamp: '#16181c',
-      message: '#16181c'
+      timestamp: '#876600',
+      message: '#222222'
     },
 
     variables: {
-      name: '#839496',
-      value: '#839496',
+      name: '#222222',
+      value: '#876600',
 
       range: {
         fill: '#876600',
@@ -45,7 +45,7 @@ export default {
       },
       flag: {
         on: '#104061',
-        off: '#16181c'
+        off: '#222222'
       }
     }
   }
