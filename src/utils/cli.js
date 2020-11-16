@@ -7,6 +7,7 @@ export default meow(`
     $ arduino-cereal
 
   Options
-    --port  Serial port
-    --baud  Baud rate (default: 9600)
+    --port   Serial port
+    --baud   Baud rate (default: 9600)
+    --theme  Theme name (light, dark)
 `);
