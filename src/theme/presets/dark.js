@@ -31,8 +31,8 @@ export default {
     },
 
     monitor: {
-      timestamp: '#839496',
-      text: '#839496'
+      timestamp: '#b58900',
+      message: '#839496'
     },
 
     variables: {

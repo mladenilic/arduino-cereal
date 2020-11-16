@@ -10,7 +10,7 @@ import Timestamp from './monitor/timestamp';
 import { connect } from 'react-redux/lib/alternate-renderers';
 import { setMessageCount } from '../redux/actions/messages';
 
-const Monitor = ({ messages, setMessageCount }) => {
+const Monitor = ({ messages, colors, setMessageCount }) => {
   const ref = useRef();
 
 	useEffect(() => {
@@ -25,8 +25,8 @@ const Monitor = ({ messages, setMessageCount }) => {
       <Text>
         {messages.map((message, index) => (
           <Text key={index}>
-            <Timestamp time={message.time} />
-            <Text>{message.text}</Text>
+            <Timestamp time={message.time} color={colors.timestamp} />
+            <Text color={colors.message}>{message.text}</Text>
             {index === messages.length - 1 ? '' : <Newline/>}
           </Text>
         ))}
@@ -37,7 +37,8 @@ const Monitor = ({ messages, setMessageCount }) => {
 
 export default connect(
   (state) => ({
-    messages: state.messages.messages
+    messages: state.messages.messages,
+    colors: state.config.theme?.colors?.monitor || {},
   }),
   { setMessageCount }
 )(Monitor);
