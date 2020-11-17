@@ -8,14 +8,20 @@ const initial = {
 export default (state = initial, action) => {
   switch (action.type) {
     case types.ADD_MESSAGE:
+      const messages = state.messages.slice(0, -1);
+      const message = ((state.messages.slice(-1) || {}).text || '') + action.message;
+
       let newState = {
         ...state,
         ...{ messages: [
-          ...state.messages,
-          ...action.message
-            .split("\r\n")
+          ...messages,
+          ...message
+            .split("\n")
             .filter(Boolean)
-            .map(m => ({ text: m, time: action.time }))
+            .map(m => ({
+              text: m.replace(/(\r\n|\n|\r)/gm, ''),
+              time: action.time
+            }))
         ].slice(-state.count) }
       };
 
