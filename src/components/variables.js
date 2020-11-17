@@ -9,13 +9,11 @@ import Flag from './variables/flag';
 
 import { connect } from 'react-redux/lib/alternate-renderers';
 
-const variableComponent = (type) => {
-  return ({
-    '0': Variable,
-    '1': Range,
-    '2': Flag,
-  })[type] || Variable;
-};
+const variableComponent = (type) => ({
+  '0': Variable,
+  '1': Range,
+  '2': Flag,
+}[type] || Variable);
 
 const Variables = ({ variables = {} }) => {
   return <Box flexDirection="column" borderStyle="single" paddingX={1} marginRight={1}>
