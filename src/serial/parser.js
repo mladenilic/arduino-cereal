@@ -13,35 +13,36 @@ export default class CerealParser extends Transform {
   }
 
   _transform(chunk, encoding, cb) {
-    if (this.varaible === false && chunk.indexOf(this.delimiter) === -1) {
-      this.push({ variable: false, value: chunk.toString('utf-8') });
-      cb();
-
-      return;
-    }
-
-    let data = Buffer.concat([this.buffer, chunk]);
+    this.buffer = Buffer.concat([this.buffer, chunk]);
 
     let position;
-    while ((position = data.indexOf(this.delimiter)) !== -1) {
-      let value = data.slice(0, position).toString('utf-8');
-      if (this.varaible) {
-        value = value.split(this.valueDelimiter);
+    while ((position = this.buffer.indexOf(this.delimiter)) !== -1) {
+      let value = this.buffer.slice(0, position).toString('utf-8');
+      if (value.length) {
+        this.push({
+          variable: this.varaible,
+          value: this.varaible ? value.split(this.valueDelimiter) : value
+        });
       }
 
-      this.push({ variable: this.varaible, value: value });
       this.varaible = !this.varaible;
-
-      data = data.slice(position + this.delimiter.length);
+      this.buffer = this.buffer.slice(position + this.delimiter.length);
     }
 
-    this.buffer = data;
+    if (!this.varaible) {
+      this._flushBuffer();
+    }
+
     cb()
   }
 
   _flush(cb) {
-    this.push(this.buffer);
-    this.buffer = Buffer.alloc(0);
+    this._flushBuffer();
     cb()
+  }
+
+  _flushBuffer() {
+    this.push({ variable: false, value: this.buffer.toString('utf-8') });
+    this.buffer = Buffer.alloc(0);
   }
 }
