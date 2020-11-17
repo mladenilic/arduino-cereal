@@ -8,24 +8,22 @@ const initial = {
 export default (state = initial, action) => {
   switch (action.type) {
     case types.ADD_MESSAGE:
-      const messages = state.messages.slice(0, -1);
-      const message = ((state.messages.slice(-1) || {}).text || '') + action.message;
+      if (!action.message.length) {
+        return state;
+      }
 
-      let newState = {
+      const message = ((state.messages[state.messages.length - 1] || {}).text || '') + action.message;
+
+      return {
         ...state,
         ...{ messages: [
-          ...messages,
+          ...state.messages.slice(0, -1),
           ...message
             .split("\n")
             .filter(Boolean)
-            .map(m => ({
-              text: m.replace(/(\r\n|\n|\r)/gm, ''),
-              time: action.time
-            }))
+            .map(m => ({ text: m.replace(/(\r\n|\n|\r)/gm, ''), time: action.time }))
         ].slice(-state.count) }
       };
-
-      return newState.messages.every((v, i) => v === state.messages[i]) ? state : newState;
     case types.SET_MESSAGE_COUNT:
       return {
         ...state,
