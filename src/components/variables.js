@@ -22,7 +22,7 @@ const Variables = ({ variables = {} }) => {
       {Object.entries(variables).map(([name, variable]) => {
         const Component = variableComponent(variable.type);
 
-        return <Component width="100%" key={name} name={name} variable={variable} />
+        return <Component width="100%" key={name} variable={variable} />
       })}
     </Box>
   </Box>

@@ -7,11 +7,11 @@ import VariableValue from './base/value';
 
 import { connect } from 'react-redux/lib/alternate-renderers';
 
-const Flag = ({ name, variable, characters, colors }) => {
+const Flag = ({ variable, characters, colors }) => {
   const value = parseInt(variable.value);
 
   return <Box flexDirection="row">
-    <VariableName name={name} />
+    <VariableName name={variable.name} />
     <Text>
       { value ?
         <Text>[<Text color={colors.on}>{(characters.on || '▣')}</Text>] <VariableValue value="HIGH"/></Text> :
