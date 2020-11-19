@@ -6,7 +6,7 @@ Drop-in replacement for Arduino's serial monitor with variable watches.
 
 ### How it works
 
-Use `Serial.print`, `Serial.println`, etc. to print data to **[Monitor]** window. To track variables in **[Variables]** window, use  *Cereal library* ([read more](./arduino/README.md)). 
+Use `Serial.print`, `Serial.println`, etc. to print data to **[Monitor]** window. To track variables in **[Variables]** window, use  *Cereal library* ([documentation & demo](./arduino/README.md)). 
 
 ### Install
 
