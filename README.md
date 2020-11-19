@@ -2,7 +2,6 @@
 
 Drop-in replacement for Arduino's serial monitor with variable watches.
 
-
 ![image](images/example.png)
 
 ### How it works
@@ -48,7 +47,7 @@ Example:
 $ arduino-cereal --port=/dev/tty.usbserial-1410 --baud=19200 --theme=light --fps=10
 ```
 
-### Configuration files
+### Configuration file
 
 Alternatively CLI options can be read from a file – `cereal.config.json`. This file is expected to be located in current working directory.
 
