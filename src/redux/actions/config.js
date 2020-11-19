@@ -1,8 +1,8 @@
 import * as types from './types';
 
-const setConfig = (config) => ({
+const setConfig = config => ({
   type: types.SET_CONFIG,
-  config,
+  config
 });
 
 export { setConfig };

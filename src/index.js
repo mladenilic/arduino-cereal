@@ -21,4 +21,4 @@ const ArduinoCereal = ({ config }) => (
   </Provider>
 );
 
-render(<ArduinoCereal config={config} />);
+render(<ArduinoCereal config={config}/>);

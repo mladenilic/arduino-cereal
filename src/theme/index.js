@@ -7,9 +7,7 @@ import white from './presets/white';
 
 const presets = { light, dark, black, white };
 export default class Theme {
-  static load(name = 'dark', overrides) {
-    const theme = presets[name] || presets.dark;
-
-    return merge(theme, overrides);
+  static load(name, overrides) {
+    return merge(presets[name] || presets.dark, overrides);
   }
 }

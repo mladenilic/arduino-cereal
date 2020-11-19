@@ -9,25 +9,25 @@ import Flag from './variables/flag';
 
 import { connect } from 'react-redux/lib/alternate-renderers';
 
-const variableComponent = (type) => ({
-  '0': Variable,
-  '1': Range,
-  '2': Flag,
+const variableComponent = type => ({
+  0: Variable,
+  1: Range,
+  2: Flag
 }[type] || Variable);
 
-const Variables = ({ variables = {} }) => {
-  return <Box flexDirection="column" borderStyle="single" paddingX={1} marginRight={1}>
+const Variables = ({ variables = {} }) => (
+  <Box paddingX={1} marginRight={1} flexDirection="column" borderStyle="single">
     <Heading>Variables</Heading>
     <Box width={60} flexDirection="column">
       {Object.entries(variables).map(([name, variable]) => {
         const Component = variableComponent(variable.type);
 
-        return <Component width="100%" key={name} variable={variable} />
+        return <Component key={name} variable={variable} width="100%"/>;
       })}
     </Box>
   </Box>
-};
+);
 
 export default connect(
-  (state) => ({ variables: state.variables.output }),
+  state => ({ variables: state.variables.output })
 )(Variables);

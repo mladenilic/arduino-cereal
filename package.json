@@ -57,7 +57,10 @@
 		"space": true,
 		"rules": {
 			"react/prop-types": "off",
-			"object-curly-spacing": 0
+			"object-curly-spacing": "off",
+			"import/no-anonymous-default-export": "off",
+			"default-param-last": "off",
+			"no-unused-expressions": ["error", { "allowTernary": true }]
 		}
 	}
 }

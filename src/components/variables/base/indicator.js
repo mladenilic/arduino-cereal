@@ -8,9 +8,9 @@ const Indicator = ({ value, colors, characters }) => (
 );
 
 export default connect(
-  (state) => ({
+  state => ({
     characters: state.config?.theme?.modules?.variables?.flag || {},
     colors: state.config?.theme?.colors?.variables?.flag || {}
-  }),
+  })
 )(Indicator);
 

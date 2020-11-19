@@ -9,8 +9,8 @@ const initial = {
 
 export default (state = initial, action) => {
   switch (action.type) {
-    case types.ADD_MESSAGE:
-      if (!action.message.length) {
+    case types.ADD_MESSAGE: {
+      if (action.message.length === 0) {
         return state;
       }
 
@@ -21,12 +21,14 @@ export default (state = initial, action) => {
         raw: [
           ...state.raw.slice(0, -1),
           ...message
-            .split("\n")
+            .split('\n')
             .filter(Boolean)
             .map(m => ({ text: m.replace(/(\r\n|\n|\r)/gm, ''), time: action.time }))
         ].slice(-state.count),
         dirty: true
       };
+    }
+
     case types.OUTPUT_MESSAGES:
       if (!state.dirty) {
         return state;

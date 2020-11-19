@@ -8,5 +8,5 @@ const Text = ({ theme, color, children, ...rest }) => (
 );
 
 export default connect(
-  (state) => ({ theme: state?.config?.theme || {} }),
+  state => ({ theme: state?.config?.theme || {} })
 )(Text);

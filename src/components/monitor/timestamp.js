@@ -12,5 +12,5 @@ const Timestamp = ({ monitor, time, ...props }) => {
 };
 
 export default connect(
-  (state) => ({ monitor: state.config?.theme?.modules?.monitor || {} }),
+  state => ({ monitor: state.config?.theme?.modules?.monitor || {} })
 )(Timestamp);

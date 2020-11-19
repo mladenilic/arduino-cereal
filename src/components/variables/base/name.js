@@ -12,5 +12,5 @@ const VariableName = ({ name, theme }) => (
 );
 
 export default connect(
-  (state) => ({ theme: state.config?.theme || {} }),
+  state => ({ theme: state.config?.theme || {} })
 )(VariableName);

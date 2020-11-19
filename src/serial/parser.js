@@ -17,8 +17,8 @@ export default class CerealParser extends Transform {
 
     let position;
     while ((position = this.buffer.indexOf(this.delimiter)) !== -1) {
-      let value = this.buffer.slice(0, position).toString('utf-8');
-      if (value.length) {
+      const value = this.buffer.slice(0, position).toString('utf-8');
+      if (value.length > 0) {
         this.push({
           variable: this.varaible,
           value: this.varaible ? value.split(this.valueDelimiter) : value
@@ -33,12 +33,12 @@ export default class CerealParser extends Transform {
       this._flushBuffer();
     }
 
-    cb()
+    cb();
   }
 
   _flush(cb) {
     this._flushBuffer();
-    cb()
+    cb();
   }
 
   _flushBuffer() {

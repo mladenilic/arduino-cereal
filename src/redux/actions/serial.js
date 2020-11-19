@@ -1,8 +1,8 @@
 import * as types from './types';
 
-const setSerialStatus = (status) => ({
+const setSerialStatus = status => ({
   type: types.SET_SERIAL_STATUS,
-  status,
+  status
 });
 
 export { setSerialStatus };

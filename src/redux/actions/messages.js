@@ -1,6 +1,6 @@
 import * as types from './types';
 
-const setMessageCount = (count) => ({
+const setMessageCount = count => ({
   type: types.SET_MESSAGE_COUNT,
   count
 });

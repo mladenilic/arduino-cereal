@@ -27,7 +27,7 @@ export default {
 
     status: {
       success: '#859900',
-      error: '#dc322f',
+      error: '#dc322f'
     },
 
     monitor: {
@@ -49,4 +49,4 @@ export default {
       }
     }
   }
-}
+};

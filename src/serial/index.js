@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 
-import SerialPort from 'serialport'
+import SerialPort from 'serialport';
 import CerealParser from './parser';
 
 export default class Serial extends EventEmitter {
@@ -21,6 +21,6 @@ export default class Serial extends EventEmitter {
   }
 
   static connect(port, baud) {
-     return new this(new SerialPort(port, { baudRate: baud, autoOpen: false }));
+    return new this(new SerialPort(port, { baudRate: baud, autoOpen: false }));
   }
-};
+}

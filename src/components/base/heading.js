@@ -12,5 +12,5 @@ const Heading = ({ theme, color, children }) => (
 );
 
 export default connect(
-  (state) => ({ theme: state?.config?.theme || {} }),
+  state => ({ theme: state?.config?.theme || {} })
 )(Heading);

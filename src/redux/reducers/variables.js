@@ -8,8 +8,8 @@ const initial = {
 
 export default (state = initial, action) => {
   switch (action.type) {
-    case types.UPDATE_VARIABLE:
-      const variable = action.variable;
+    case types.UPDATE_VARIABLE: {
+      const { variable } = action;
       if (state.raw[action.name]?.value === variable.value) {
         return state;
       }
@@ -22,6 +22,8 @@ export default (state = initial, action) => {
         },
         dirty: true
       };
+    }
+
     case types.OUTPUT_VARIABLES:
       if (!state.dirty) {
         return state;
@@ -29,7 +31,7 @@ export default (state = initial, action) => {
 
       return {
         ...state,
-        output: { ...state.raw, }
+        output: { ...state.raw }
       };
     default:
       return state;

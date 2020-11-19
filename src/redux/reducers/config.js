@@ -4,7 +4,7 @@ const initial = {
   baud: 9600,
   port: undefined,
   fps: 15,
-  theme: {},
+  theme: {}
 };
 
 export default (state = initial, action) => {
@@ -12,7 +12,7 @@ export default (state = initial, action) => {
     case types.SET_CONFIG:
       return {
         ...state,
-        ...action.config,
+        ...action.config
       };
     default:
       return state;

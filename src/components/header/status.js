@@ -13,8 +13,8 @@ const Status = ({ theme, serial }) => (
 );
 
 export default connect(
-  (state) => ({
+  state => ({
     theme: state?.config?.theme || {},
     serial: state.serial
-  }),
+  })
 )(Status);

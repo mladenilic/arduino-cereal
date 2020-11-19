@@ -13,32 +13,34 @@ import { setMessageCount } from '../redux/actions/messages';
 const Monitor = ({ messages, colors, setMessageCount }) => {
   const ref = useRef();
 
-	useEffect(() => {
-		const { height } = measureElement(ref.current);
+  useEffect(() => {
+    const { height } = measureElement(ref.current);
     setMessageCount(Math.max(height, 1));
-	}, []);
+  }, [setMessageCount]);
 
-  return <Box borderStyle="single" flexDirection="column" flexGrow={1} paddingX={1}>
-    <Heading>Monitor</Heading>
-    <Box boxRef={ref} flexDirection="column" flexGrow={1}>
-      <Spacer/>
-      <Text>
-        {messages.map((message, index) => (
-          <Text key={index}>
-            <Timestamp time={message.time} color={colors.timestamp} />
-            <Text color={colors.message}>{message.text}</Text>
-            {index === messages.length - 1 ? '' : <Newline/>}
-          </Text>
-        ))}
-      </Text>
+  return (
+    <Box borderStyle="single" flexDirection="column" flexGrow={1} paddingX={1}>
+      <Heading>Monitor</Heading>
+      <Box boxRef={ref} flexDirection="column" flexGrow={1}>
+        <Spacer/>
+        <Text>
+          {messages.map((message, index) => (
+            <Text key={index}>
+              <Timestamp time={message.time} color={colors.timestamp}/>
+              <Text color={colors.message}>{message.text}</Text>
+              {index === messages.length - 1 ? '' : <Newline/>}
+            </Text>
+          ))}
+        </Text>
+      </Box>
     </Box>
-  </Box>
+  );
 };
 
 export default connect(
-  (state) => ({
+  state => ({
     messages: state.messages.output,
-    colors: state.config.theme?.colors?.monitor || {},
+    colors: state.config.theme?.colors?.monitor || {}
   }),
   { setMessageCount }
 )(Monitor);

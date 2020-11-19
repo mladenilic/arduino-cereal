@@ -16,8 +16,7 @@ import Monitor from './components/monitor';
 import useInit from './utils/use-init';
 
 const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, outputMessages, setSerialStatus }) => {
-  useInit(() => { setConfig(config) });
-
+  useInit(() => setConfig(config));
   useInit(() => setInterval(() => {
     outputVariables();
     outputMessages();
@@ -28,16 +27,18 @@ const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, o
       .on('connect', () => setSerialStatus('success'))
       .on('error', () => setSerialStatus('error'))
       .on('variable', ([type, name, value, ...options]) => updateVariable(type, name, value, options))
-      .on('message', (message) => addMessage(message));
+      .on('message', message => addMessage(message));
   });
 
-  return <Box flexDirection="column" height={process.stdout.rows}>
-    <Header/>
-    <Box flexDirection="row" flexGrow={1}>
-      <Variables/>
-      <Monitor/>
+  return (
+    <Box flexDirection="column" height={process.stdout.rows}>
+      <Header/>
+      <Box flexDirection="row" flexGrow={1}>
+        <Variables/>
+        <Monitor/>
+      </Box>
     </Box>
-  </Box>
+  );
 };
 
 export default connect(
