@@ -5,7 +5,7 @@ import Indicator from './base/indicator';
 import VariableName from './base/name';
 import VariableValue from './base/value';
 
-const Flag = ({ variable }) => {
+const Flag = React.memo(({ variable }) => {
   const value = !!parseInt(variable.value);
 
   return <Box flexDirection="row">
@@ -13,6 +13,6 @@ const Flag = ({ variable }) => {
     <Indicator value={value} />
     <VariableValue value={value ? 'HIGH' : 'LOW'} />
   </Box>
-};
+});
 
 export default Flag;
