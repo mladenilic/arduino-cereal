@@ -1,6 +1,6 @@
 # Arduino Cereal Library
 
-Arduino library for tracking variables in [Cereal monitor ](../).
+Arduino library for tracking variables in [Cereal monitor ](../README.md).
 
 ### Install
 
@@ -11,24 +11,24 @@ Download and manually install to your Arduino libraries. Read *Manual Installati
 Cereal monitor supports three different types of variables: *basic* variable, *range* and a *flag* variable.
 
 For basic variable output, use:
-```c++
+```cpp
 Cereal.varaible(name, value);
 ```
 
 For range variable outputs use: 
-```c++
+```cpp
 Cereal.range(name, value, from, to);
 Cereal.analog(name, value);
 ```
 
 For flag variable output use:
-```c++
+```cpp
 Cereal.digital(name, value);
 ``` 
 
 ### Example
 
-```c++
+```cpp
 #include "Cereal.h"
 
 #define STATUS_PIN 3
