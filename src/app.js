@@ -31,7 +31,7 @@ const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, o
   });
 
   return (
-    <Box flexDirection="column" height={process.stdout.rows}>
+    <Box flexDirection="column" height={process.stdout.rows - 1}>
       <Header/>
       <Box flexDirection="row" flexGrow={1}>
         <Variables/>
