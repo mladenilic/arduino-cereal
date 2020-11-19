@@ -12,8 +12,8 @@ import cli from './utils/cli';
 import Theme from './theme';
 
 const userConfig = loadUserConfig();
-const theme = Theme.load(cli.theme, userConfig.theme || {});
-const config = Object.assign(userConfig, cli, { theme });
+const theme = Theme.load(cli.flags.theme, userConfig.theme || {});
+const config = Object.assign(userConfig, cli.flags, { theme });
 
 const ArduinoCereal = ({ config }) => (
   <Provider store={store}>
