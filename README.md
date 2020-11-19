@@ -6,7 +6,7 @@ Drop-in replacement for Arduino's serial monitor with variable watches.
 
 ### How it works
 
-Use `Serial.print`, `Serial.println`, etc. to print data to **[Monitor]** window. To track variables in *[Variables]* window, use  *Cereal library* ([read more](./arduino/README.md)). 
+Use `Serial.print`, `Serial.println`, etc. to print data to **[Monitor]** window. To track variables in **[Variables]** window, use  *Cereal library* ([read more](./arduino/README.md)). 
 
 ### Install
 
@@ -39,8 +39,8 @@ $ arduino-cereal --help
 
 * **port:** – Serial port to which Arduino board is connected.
 * **baud:** – Baud rate. Default value 9600
-* **theme:** – Change the color theme. Available options are: *light*, *dark*, *black*, *black*. Default theme is *dark*. Read more about [theme customization](THEME.md). 
-* **fps** – Control the rate at which CLI screen is updated. Helps dealing with flickering on some terminal apps (iTerm). Default: 15
+* **theme:** – Change the color theme. Available options are *light*, *dark*, *black*, *black*. The default theme is *dark*. Read more about [theme customization](THEME.md). 
+* **fps** – Control the rate at which the CLI screen is updated. Helps to deal with flickering on some terminal apps (iTerm). Default: 15
 
 Example:
 ```bash
@@ -49,7 +49,7 @@ $ arduino-cereal --port=/dev/tty.usbserial-1410 --baud=19200 --theme=light --fps
 
 ### Configuration file
 
-Alternatively CLI options can be read from a file – `cereal.config.json`. This file is expected to be located in current working directory.
+Alternatively, CLI options can be read from a file – `cereal.config.json`. This file is expected to be located in the current working directory.
 
 ```json5
 {

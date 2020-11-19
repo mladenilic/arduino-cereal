@@ -4,11 +4,11 @@ This document describes monitor theme customization.
 
 ### Getting Started
 
-Theme options are specified in configuration file. Read [here](../README.md#configuration-file) how to set up configuration file.
+These options are specified in the configuration file. Read [here](../README.md#configuration-file) how to set up a configuration file.
 
 ### Configuration
 
-Below is sample configuration file with all theme options. You can use it a template to create a custom theme.
+Below is a sample configuration file with all theme options. You can use it as a template to create a custom theme.
 
 ```json
 {
