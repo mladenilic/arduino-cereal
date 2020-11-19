@@ -17,8 +17,12 @@ import useInit from './utils/use-init';
 
 const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, outputMessages, setSerialStatus }) => {
   useInit(() => { setConfig(config) });
-  useInit(() => { setInterval(outputVariables, 60) });
-  useInit(() => { setInterval(outputMessages, 60) });
+
+  useInit(() => setInterval(() => {
+    outputVariables();
+    outputMessages();
+  }, 1000 / Math.min(Math.max(config.fps || 15, 1), 60)));
+
   useInit(() => {
     Serial.connect(config.port, config.baud || 9600)
       .on('connect', () => setSerialStatus('success'))

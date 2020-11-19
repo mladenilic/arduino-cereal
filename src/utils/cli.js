@@ -10,4 +10,5 @@ export default meow(`
     --port   Serial port
     --baud   Baud rate (default: 9600)
     --theme  Theme name (light, dark)
+    --fps    Screen render rate (default: 15)
 `);

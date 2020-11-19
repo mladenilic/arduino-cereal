@@ -3,6 +3,7 @@ import * as types from '../actions/types';
 const initial = {
   baud: 9600,
   port: undefined,
+  fps: 15,
   theme: {},
 };
 
