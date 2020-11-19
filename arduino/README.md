@@ -12,7 +12,7 @@ Cereal monitor supports three different types of variables: *basic* variable, *r
 
 For basic variable output, use:
 ```cpp
-Cereal.varaible(name, value);
+Cereal.variable(name, value);
 ```
 
 For range variable outputs use: 
