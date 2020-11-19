@@ -4,7 +4,7 @@ This document describes monitor theme customization.
 
 ### Getting Started
 
-These options are specified in the configuration file. Read [here](../README.md#configuration-file) how to set up a configuration file.
+These options are specified in the configuration file. Read [here](README.md#configuration-file) how to set up a configuration file.
 
 ### Configuration
 
