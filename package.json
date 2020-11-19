@@ -1,66 +1,77 @@
 {
-	"name": "arduino-cereal",
-	"version": "1.0.1",
-	"license": "MIT",
-	"bin": {
-		"arduino-cereal": "lib/index.js"
-	},
-	"engines": {
-		"node": ">=10"
-	},
-	"scripts": {
-		"test": "xo && ava",
-		"build": "rm -rf lib/ && babel src -d lib",
-		"start": "babel-node ./src"
-	},
-	"files": [
-		"lib"
-	],
-	"dependencies": {
-		"ink": "^3.0.8",
-		"lodash.merge": "^4.6.2",
-		"meow": "^8.0.0",
-		"react": "^16.8.0",
-		"react-redux": "^7.2.2",
-		"redux": "^4.0.5",
-		"serialport": "^9.0.2"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.12.1",
-		"@babel/core": "^7.12.3",
-		"@babel/node": "^7.12.6",
-		"@babel/preset-env": "^7.12.1",
-		"@babel/preset-react": "^7.12.5",
-		"@babel/register": "^7.12.1",
-		"ava": "^3.13.0",
-		"chalk": "^4.1.0",
-		"eslint-config-xo-react": "^0.23.0",
-		"eslint-plugin-react": "^7.21.5",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"ink-testing-library": "^2.1.0",
-		"xo": "^0.34.2"
-	},
-	"ava": {
-		"babel": true,
-		"require": [
-			"@babel/register"
-		]
-	},
-	"babel": {
-		"presets": [
-			"@babel/preset-env",
-			"@babel/preset-react"
-		]
-	},
-	"xo": {
-		"extends": "xo-react",
-		"space": true,
-		"rules": {
-			"react/prop-types": "off",
-			"object-curly-spacing": "off",
-			"import/no-anonymous-default-export": "off",
-			"default-param-last": "off",
-			"no-unused-expressions": ["error", { "allowTernary": true }]
-		}
-	}
+  "name": "arduino-cereal",
+  "version": "1.0.2",
+  "description": "Drop-in replacement for Arduino serial monitor",
+  "license": "MIT",
+  "homepage": "https://github.com/mladenilic/arduino-cereal#readme",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/mladenilic/arduino-cereal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mladenilic/arduino-cereal/issues"
+  },
+  "keywords": ["arduino", "serial", "monitor"],
+  "author": "Mladen Ilic (https://github.com/mladenilic)",
+  "bin": {
+    "arduino-cereal": "lib/index.js"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "test": "xo && ava",
+    "build": "rm -rf lib/ && babel src -d lib",
+    "start": "babel-node ./src"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "ink": "^3.0.8",
+    "lodash.merge": "^4.6.2",
+    "meow": "^8.0.0",
+    "react": "^16.8.0",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "serialport": "^9.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/register": "^7.12.1",
+    "ava": "^3.13.0",
+    "chalk": "^4.1.0",
+    "eslint-config-xo-react": "^0.23.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "ink-testing-library": "^2.1.0",
+    "xo": "^0.34.2"
+  },
+  "ava": {
+    "babel": true,
+    "require": [
+      "@babel/register"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "xo": {
+    "extends": "xo-react",
+    "space": true,
+    "rules": {
+      "react/prop-types": "off",
+      "object-curly-spacing": "off",
+      "import/no-anonymous-default-export": "off",
+      "default-param-last": "off",
+      "no-unused-expressions": ["error", { "allowTernary": true }]
+    }
+  }
 }
