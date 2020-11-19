@@ -6,4 +6,8 @@ const updateVariable = (type, name, value, options) => ({
   variable: { name, type, value, options }
 });
 
-export { updateVariable };
+const outputVariables = () => ({
+  type: types.OUTPUT_VARIABLES
+});
+
+export { updateVariable, outputVariables };

@@ -11,4 +11,8 @@ const addMessage = (message, time = new Date()) => ({
   time
 });
 
-export { setMessageCount, addMessage };
+const outputMessages = () => ({
+  type: types.OUTPUT_MESSAGES
+});
+
+export { setMessageCount, addMessage, outputMessages };

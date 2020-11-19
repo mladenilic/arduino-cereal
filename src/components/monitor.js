@@ -37,7 +37,7 @@ const Monitor = ({ messages, colors, setMessageCount }) => {
 
 export default connect(
   (state) => ({
-    messages: state.messages.messages,
+    messages: state.messages.output,
     colors: state.config.theme?.colors?.monitor || {},
   }),
   { setMessageCount }

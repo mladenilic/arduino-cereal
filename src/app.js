@@ -2,8 +2,8 @@ import React from 'react';
 
 import { connect } from 'react-redux/lib/alternate-renderers';
 import { setConfig } from './redux/actions/config';
-import { updateVariable } from './redux/actions/variables';
-import { addMessage } from './redux/actions/messages';
+import { updateVariable, outputVariables } from './redux/actions/variables';
+import { addMessage, outputMessages } from './redux/actions/messages';
 import { setSerialStatus } from './redux/actions/serial';
 
 import Serial from './serial';
@@ -15,8 +15,10 @@ import Monitor from './components/monitor';
 
 import useInit from './utils/use-init';
 
-const App = ({ config, setConfig, updateVariable, addMessage, setSerialStatus }) => {
+const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, outputMessages, setSerialStatus }) => {
   useInit(() => { setConfig(config) });
+  useInit(() => { setInterval(outputVariables, 60) });
+  useInit(() => { setInterval(outputMessages, 60) });
   useInit(() => {
     Serial.connect(config.port, config.baud || 9600)
       .on('connect', () => setSerialStatus('success'))
@@ -36,5 +38,5 @@ const App = ({ config, setConfig, updateVariable, addMessage, setSerialStatus })
 
 export default connect(
   null,
-  { setConfig, updateVariable, addMessage, setSerialStatus }
+  { setConfig, updateVariable, outputVariables, addMessage, outputMessages, setSerialStatus }
 )(App);

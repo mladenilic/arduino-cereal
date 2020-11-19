@@ -29,5 +29,5 @@ const Variables = ({ variables = {} }) => {
 };
 
 export default connect(
-  (state) => ({ variables: state.variables }),
+  (state) => ({ variables: state.variables.output }),
 )(Variables);

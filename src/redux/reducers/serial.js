@@ -9,7 +9,7 @@ export default (state = initial, action) => {
     case types.SET_SERIAL_STATUS:
       return {
         ...state,
-        ...{ status: action.status }
+        status: action.status
       };
     default:
       return state;
