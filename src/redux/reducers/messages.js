@@ -2,8 +2,10 @@ import * as types from '../actions/types';
 
 const initial = {
   count: 10,
+  delimiter: '\r\n',
   raw: [],
   output: [],
+  terminated: true,
   dirty: false
 };
 
@@ -14,17 +16,17 @@ export default (state = initial, action) => {
         return state;
       }
 
-      const message = ((state.raw[state.raw.length - 1] || {}).text || '') + action.message;
+      const { message, time } = action;
+      const prefix = state.terminated ? '' : (state.raw.pop()?.text || '');
+      const messages = (prefix + message).split(state.delimiter).map(text => ({ text, time }));
+      const terminated = message.endsWith(state.delimiter);
+
+      terminated && messages.pop();
 
       return {
         ...state,
-        raw: [
-          ...state.raw.slice(0, -1),
-          ...message
-            .split('\n')
-            .filter(Boolean)
-            .map(m => ({ text: m.replace(/(\r\n|\n|\r)/gm, ''), time: action.time }))
-        ].slice(-state.count),
+        terminated,
+        raw: [...state.raw, ...messages].slice(-state.count),
         dirty: true
       };
     }
