@@ -36,7 +36,7 @@ const Input = ({ onInput, settings }) => {
 
   return (
     <Box paddingX={1} borderStyle="single">
-      <Text>$> <Text>{value}</Text></Text>
+      <Text>{settings.prefix || ''} <Text>{value}</Text></Text>
     </Box>
   );
 };
