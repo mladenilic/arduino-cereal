@@ -12,6 +12,10 @@ export default class Serial extends EventEmitter {
     this.stream.open(this._open.bind(this));
   }
 
+  write(data) {
+    return this.stream.write(data)
+  }
+
   _open(error) {
     error === null ? this.emit('connect') : this.emit('error', error);
   }

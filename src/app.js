@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
 
 import { connect } from 'react-redux/lib/alternate-renderers';
 import { setConfig } from './redux/actions/config';
@@ -13,10 +13,17 @@ import Text from './components/base/Text';
 import Header from './components/header';
 import Variables from './components/variables';
 import Monitor from './components/monitor';
+import Input from './components/input';
 
 import useInit from './utils/use-init';
 
 const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, outputMessages, setSerialStatus }) => {
+  const serial = useRef();
+  const onInput = useCallback((input) => {
+    serial.current.write(input);
+    addMessage(`${input}\r\n`);
+  });
+
   useInit(() => setConfig(config));
   useInit(() => setInterval(() => {
     outputVariables();
@@ -28,7 +35,7 @@ const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, o
       return;
     }
 
-    Serial.connect(config.port, config.baud || 9600)
+    serial.current = Serial.connect(config.port, config.baud || 9600)
       .on('connect', () => setSerialStatus('success'))
       .on('error', () => setSerialStatus('error'))
       .on('variable', ([type, name, value, ...options]) => updateVariable(type, name, value, options))
@@ -46,6 +53,7 @@ const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, o
         <Variables/>
         <Monitor/>
       </Box>
+      <Input onInput={onInput} />
     </Box>
   );
 };
