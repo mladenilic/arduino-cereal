@@ -5,7 +5,13 @@ import { useInput } from 'ink';
 import Box from './base/box';
 import Text from './base/text';
 
-const Input = ({ onInput }) => {
+import { connect } from 'react-redux/lib/alternate-renderers';
+
+const Input = ({ onInput, settings }) => {
+  if (!settings.enabled) {
+    return null;
+  }
+
   const [value, setValue] = useState('');
   const postValue = useCallback((value) => {
     if (!onInput || value.length === 0) {
@@ -35,4 +41,6 @@ const Input = ({ onInput }) => {
   );
 };
 
-export default Input;
+export default connect(
+  state => ({ settings: state.config?.theme?.modules?.input || {} })
+)(Input);
