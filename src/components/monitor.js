@@ -6,6 +6,7 @@ import Box from './base/box';
 import Text from './base/text';
 import Heading from './base/heading';
 import Timestamp from './monitor/timestamp';
+import Direction from './monitor/direction';
 
 import { connect } from 'react-redux/lib/alternate-renderers';
 import { setMessageCount } from '../redux/actions/messages';
@@ -26,7 +27,8 @@ const Monitor = ({ messages, colors, setMessageCount }) => {
         <Text>
           {messages.map((message, index) => (
             <Text key={index}>
-              <Timestamp time={message.time} color={colors.timestamp}/>
+              <Timestamp time={message.time}/>
+              <Direction sent={message.sent}/>
               <Text color={colors.message}>{message.text}</Text>
               {index === messages.length - 1 ? '' : <Newline/>}
             </Text>

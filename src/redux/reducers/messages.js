@@ -16,9 +16,9 @@ export default (state = initial, action) => {
         return state;
       }
 
-      const { message, time } = action;
+      const { message, time, sent } = action;
       const prefix = state.terminated ? '' : (state.raw.pop()?.text || '');
-      const messages = (prefix + message).split(state.delimiter).map(text => ({ text, time }));
+      const messages = (prefix + message).split(state.delimiter).map(text => ({ text, time, sent }));
       const terminated = message.endsWith(state.delimiter);
 
       terminated && messages.pop();

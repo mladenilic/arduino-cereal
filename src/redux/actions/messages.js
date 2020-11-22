@@ -5,10 +5,11 @@ const setMessageCount = count => ({
   count
 });
 
-const addMessage = (message, time = new Date()) => ({
+const addMessage = (message, sent = false, time = new Date()) => ({
   type: types.ADD_MESSAGE,
   message,
-  time
+  sent,
+  time,
 });
 
 const outputMessages = () => ({

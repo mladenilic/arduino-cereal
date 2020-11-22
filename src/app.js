@@ -21,7 +21,7 @@ const App = ({ config, setConfig, updateVariable, outputVariables, addMessage, o
   const serial = useRef();
   const onInput = useCallback((input) => {
     serial.current.write(input);
-    addMessage(`${input}\r\n`);
+    addMessage(`${input}\r\n`, true);
   });
 
   useInit(() => setConfig(config));
