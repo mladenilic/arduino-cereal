@@ -1,5 +1,5 @@
-#ifndef _ARDUINO_CEREAL_H_
-#define _ARDUINO_CEREAL_H_
+#ifndef _CEREAL_STREAM_H_
+#define _CEREAL_STREAM_H_
 
 #include "Arduino.h"
 
@@ -7,8 +7,10 @@
 #define MESSAGE_END       "\xc0"
 #define VARIABLE_DELIMTER "\xc1"
 
-class ArduinoCereal: public Print {
+class CerealStream: public Print {
   public:
+    CerealStream(Print* stream);
+
     size_t variable(const char *name, char value);
     size_t variable(const char *name, unsigned char value);
     size_t variable(const char *name, int value);
@@ -36,6 +38,8 @@ class ArduinoCereal: public Print {
       FLAG     = 0x02
     };
 
+    Print* stream;
+
     using Print::write;
 
     size_t start() { return print(MESSAGE_START); }
@@ -43,7 +47,7 @@ class ArduinoCereal: public Print {
     size_t end() { return print(MESSAGE_END); }
     size_t t(Type type) { return print(type); }
     size_t d() { return print(VARIABLE_DELIMTER); }
-    size_t write(uint8_t c) { return Serial.write(c); }
+    size_t write(uint8_t c) { return stream->write(c); }
 };
 
-#endif _ARDUINO_CEREAL_H_
+#endif _CEREAL_STREAM_H_

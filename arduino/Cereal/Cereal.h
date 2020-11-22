@@ -1,8 +1,8 @@
 #ifndef _CEREAL_H_
 #define _CEREAL_H_
 
-#include "ArduinoCereal.h"
+#include "CerealStream.h"
 
-ArduinoCereal Cereal;
+CerealStream Cereal(&Serial);
 
 #endif _CEREAL_H_
