@@ -9,7 +9,7 @@
 
 class CerealStream: public Print {
   public:
-    CerealStream(Print* stream);
+    CerealStream(Print& stream);
 
     size_t variable(const char *name, char value);
     size_t variable(const char *name, unsigned char value);
@@ -38,7 +38,7 @@ class CerealStream: public Print {
       FLAG     = 0x02
     };
 
-    Print* stream;
+    Print& stream;
 
     using Print::write;
 
@@ -47,7 +47,7 @@ class CerealStream: public Print {
     size_t end() { return print(MESSAGE_END); }
     size_t t(Type type) { return print(type); }
     size_t d() { return print(VARIABLE_DELIMTER); }
-    size_t write(uint8_t c) { return stream->write(c); }
+    size_t write(uint8_t c) { return stream.write(c); }
 };
 
 #endif _CEREAL_STREAM_H_

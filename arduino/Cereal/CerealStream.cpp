@@ -7,7 +7,7 @@
   + print(from) + d()                              \
   + print(to) + end();                             \
 
-CerealStream::CerealStream(Print* stream): stream(stream) {}
+CerealStream::CerealStream(Print& stream): stream(stream) {}
 
 size_t CerealStream::variable(const char *name, char value) {
   return _CEREAL_PRINT_VARIABLE(name, value);

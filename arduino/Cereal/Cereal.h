@@ -3,6 +3,6 @@
 
 #include "CerealStream.h"
 
-CerealStream Cereal(&Serial);
+CerealStream Cereal(Serial);
 
 #endif _CEREAL_H_
