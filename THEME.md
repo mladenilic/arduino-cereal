@@ -24,15 +24,21 @@ Below is a sample configuration file with all theme options. You can use it as a
       },
 
       "variables": {
+        "enabled": true,
         "range": {
           "fill": "▇",
           "empty": "-"
         },
-        
+
         "flag": {
           "on": "▣",
           "off": "▢"
         }
+      },
+
+      "input": {
+        "enabled": true,
+        "prefix": "$>"
       }
     },
 
