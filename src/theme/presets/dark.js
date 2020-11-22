@@ -11,6 +11,7 @@ export default {
     },
 
     variables: {
+      enabled: true,
       range: {
         fill: '▇',
         empty: '-'
@@ -19,6 +20,11 @@ export default {
         on: '▣',
         off: '▢'
       }
+    },
+
+    input: {
+      enabled: true,
+      prefix: '$>'
     }
   },
 
