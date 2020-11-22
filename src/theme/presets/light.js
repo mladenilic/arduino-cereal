@@ -2,7 +2,12 @@ export default {
   modules: {
     monitor: {
       timestamp: true,
-      timestampLocale: 'en-GB'
+      timestampLocale: 'en-GB',
+
+      direction: {
+        received: '<<',
+        sent: '>>'
+      }
     },
 
     variables: {
@@ -32,7 +37,12 @@ export default {
 
     monitor: {
       timestamp: '#876600',
-      message: '#222222'
+      message: '#222222',
+
+      direction: {
+        received: '#876600',
+        sent: '#104061'
+      }
     },
 
     variables: {
