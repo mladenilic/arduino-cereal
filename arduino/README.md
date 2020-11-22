@@ -65,3 +65,34 @@ void loop() {
 Running this examples gives the following output:
 
 ![image](../images/demo.gif)
+
+### Software Serial
+
+You can send data to multiple Cereal monitors by creating more than one `CerealStream`.
+`CerealStream` object take a destination stream it should write to.
+
+Destination stream is any object of class that inherits from built-in `Print` class.
+
+```cpp
+#include "SoftwareSerial.h"
+#include "Cereal.h"
+
+int i = 0;
+
+SoftwareSerial sSerial(3, 4);
+CerealStream sCereal(sSerial);
+
+void setup() {
+  Serial.begin(9600);
+  sSerial.begin(9600);
+}
+
+void loop() {
+  // Writes to HardwareSerial0
+  Cereal.variable("I", i++);
+
+  // Writes to SoftwareSerial RX(3)/TX(4)
+  sCereal.variable("I", i++);
+}
+
+```
